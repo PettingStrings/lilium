@@ -1,6 +1,6 @@
 import unittest
 import shutil
-from manga_scraper.manganelo import *
+from lilium.manganelo import *
 
 class Test(unittest.TestCase):
 
