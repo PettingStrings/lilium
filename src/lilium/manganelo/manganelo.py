@@ -13,7 +13,7 @@ class ManganeloSearchIndex():
         self.link = link
         self.current_page = 0
      
-    def GetPage(self, page_num:int)->dict[ManganeloManga]:
+    def GetPage(self, page_num:int)->dict[int:dict[str:ManganeloManga]]:
         dict_manga = self.manga_list.get(page_num) 
         if dict_manga is not None:
             return dict_manga
@@ -36,11 +36,11 @@ class ManganeloSearchIndex():
         
         return dict_manga
     
-    def GetNextPage(self):
+    def GetNextPage(self)->dict[int:dict[str:ManganeloManga]]:
         self.current_page += 1
         return self.GetPage(self.current_page)
     
-    async def GetPageAsync(self, page_num:int)->dict[ManganeloManga]:
+    async def GetPageAsync(self, page_num:int)->dict[int:dict[str:ManganeloManga]]:
         dict_manga = self.manga_list.get(page_num) 
         if dict_manga is not None:
             return dict_manga
@@ -63,7 +63,7 @@ class ManganeloSearchIndex():
         
         return dict_manga
     
-    def GetNextPageAsync(self):
+    def GetNextPageAsync(self)->dict[int:dict[str:ManganeloManga]]:
         self.current_page += 1
         return self.GetPageAsync(self.current_page) 
     
